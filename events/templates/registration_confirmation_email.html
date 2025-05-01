@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration Confirmation</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fc;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 25px;
+            background-color: #56cfe1;
+            color: white;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 26px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .content {
+            padding: 0 15px;
+        }
+
+        .content p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .event-details {
+            margin-top: 20px;
+            padding-left: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .event-details li {
+            margin-bottom: 12px;
+            list-style-type: none;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .event-details li svg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #56cfe1;
+            width: 20px;
+            height: 20px;
+        }
+
+        .qr-section {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .qr-section img {
+            width: 180px;
+            height: auto;
+            margin-top: 20px;
+            border: 3px solid #56cfe1;
+            border-radius: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            padding-top: 30px;
+            font-size: 12px;
+            color: #888;
+        }
+
+        .footer a {
+            color: #56cfe1;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .email-container {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 22px;
+            }
+
+            .content p, .event-details li {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>🎉 Registration Confirmed!</h1>
+        </div>
+        <div class="content">
+            <p>Dear {{ full_name }},</p>
+            <p>Thank you for registering for the event <strong>{{ event.title }}</strong>. We are excited to have you join us!</p>
+
+            <p><strong>Event Details:</strong></p>
+            <ul class="event-details">
+                <li><strong>📍 Location:</strong> {{ event.location }}</li>
+                <li><strong>📅 Date & Time:</strong> {{ event.date|date:"F j, Y" }} at {{ event.time|time:"g:i A" }}
+                </li>
+                <li><strong>💻 Mode:</strong> {{ event.mode }}</li>
+
+            </ul>
+
+            <p>We look forward to seeing you there!</p>
+
+            <div class="qr-section">
+                <p><strong>QR Code:</strong> Please find your unique event check-in QR code attached to this email.</p>
+
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Entify - Made by Bhavy Manchanda.</p>
+        </div>
+    </div>
+</body>
+</html>
