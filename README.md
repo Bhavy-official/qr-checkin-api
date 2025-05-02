@@ -121,7 +121,7 @@ Authorization: Bearer <your-token>
 | `/api/events/list/`                             | GET    | List all events                                        |
 | `/api/events/register/`                         | POST   | Student registers for an event                         |
 | `/api/events/checkin/`                          | POST   | Check in to an event (students can check themselves in, hosts can check in others) |
-| `/api/events/checkins/export/`                  | GET    | Export check-in data as CSV (host only)                |
+| `/api/events/checkins/export/`                  | POST    | Export check-in data as CSV (host only)                |
 | `/api/events/<int:event_id>/checkins/summary/`  | GET    | Get a summary of check-ins for an event (host only)    |
 
 
