@@ -111,6 +111,7 @@ TEMPLATES = [
 
 
 WSGI_APPLICATION = 'qr_api.wsgi.application'
+APPEND_SLASH = True
 
 
 # Database
