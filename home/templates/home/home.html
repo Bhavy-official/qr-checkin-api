@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>QR Event Check-In API</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #f0f2f5, #e3e8ee);
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        p.description {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .links a {
+            background-color: #3498db;
+            color: white;
+            padding: 15px 25px;
+            font-weight: 600;
+            border-radius: 10px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .links a:hover {
+            background-color: #2980b9;
+        }
+
+        .endpoint-section {
+            width: 90%;
+            max-width: 1000px;
+            margin-top: 40px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        .endpoint-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .endpoint-table {
+            width: 100%;
+            border-collapse: collapse;
+            display: block;
+            margin-top: 20px;
+        }
+
+        .endpoint-table th,
+        .endpoint-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .endpoint-table th {
+            background-color: #3498db;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .endpoint-table td {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .endpoint-table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .footer {
+            margin-top: 60px;
+            font-size: 1rem;
+            color: #888;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-top: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>🎉 QR Event Check-In API</h1>
+    <p class="description">Welcome to the QR Event Check-In API documentation. Explore the available endpoints and API
+        status.</p>
+
+    <div class="links">
+        <a href="#" onclick="alert('🔐 Use Postman to test Auth API'); return false;">🔐 Test API</a>
+        <a href="#" onclick="alert('📅 Use Postman to test Events API'); return false;">📅 Events Endpoints</a>
+
+        <a href="https://github.com/Bhavy-official/qr-checkin-api" target="_blank">📂 View on GitHub</a>
+        <a href="https://bhavy-8544770.postman.co/workspace/Bhavy's-Workspace~7ac39ec4-cea2-4d34-83e2-72a9e450078e/collection/44590267-1dee5894-eed9-4e62-a21e-1c7d197f19df?action=share&creator=44590267"
+            target="_blank">📬 Postman Collection</a>
+    </div>
+
+    <!-- Auth Endpoints Section -->
+    <div class="endpoint-section" id="auth-section">
+        <h2>🔐 Auth Endpoints</h2>
+        <table id="auth-table" class="endpoint-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>/api/auth/register/</strong></td>
+                    <td>POST</td>
+                    <td>Register a new student or host</td>
+                </tr>
+                <tr>
+                    <td><strong>/api/auth/login/</strong></td>
+                    <td>POST</td>
+                    <td>Log in and get JWT token</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Events Endpoints Section -->
+    <div class="endpoint-section" id="events-section">
+        <h2>📅 Events Endpoints</h2>
+        <table id="events-table" class="endpoint-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>/api/events/create/</strong></td>
+                    <td>POST</td>
+                    <td>Host creates a new event</td>
+                </tr>
+                <tr>
+                    <td><strong>/api/events/list/</strong></td>
+                    <td>GET</td>
+                    <td>List all events</td>
+                </tr>
+                <tr>
+                    <td><strong>/api/events/register/</strong></td>
+                    <td>POST</td>
+                    <td>Student registers for an event</td>
+                </tr>
+                <tr>
+                    <td><strong>/api/events/checkin/</strong></td>
+                    <td>POST</td>
+                    <td>Check in to an event</td>
+                </tr>
+                <tr>
+                    <td><strong>/api/events/checkins/export/</strong></td>
+                    <td>GET</td>
+                    <td>Export check-in data as CSV (host only)</td>
+                </tr>
+                <tr>
+                    <td><strong>/api/events/<int:event_id>/checkins/summary/</strong></td>
+                    <td>GET</td>
+                    <td>Get a summary of check-ins for an event (host only)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>Developed by Bhavy Manchanda</p>
+        <div class="footer-links">
+            <a href="https://github.com/Bhavy-official" target="_blank" title="GitHub">GitHub</a>
+            <a href="https://www.linkedin.com/in/bhavy-manchanda-3ba9a6323/" target="_blank"
+                title="LinkedIn">LinkedIn</a>
+            <a href="https://www.instagram.com/bhavy.ig/" target="_blank" title="Instagram">Instagram</a>
+            <a href="https://bhavy-8544770.postman.co/workspace/Bhavy's-Workspace~7ac39ec4-cea2-4d34-83e2-72a9e450078e/collection/44590267-1dee5894-eed9-4e62-a21e-1c7d197f19df?action=share&creator=44590267"
+                target="_blank" title="Postman Collection">Postman Collection</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

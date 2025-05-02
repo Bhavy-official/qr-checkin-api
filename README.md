@@ -4,6 +4,15 @@ A Django REST Framework API for managing event registrations, check-ins using QR
 
 ---
 
+## 🌐 Hosted API
+
+The API is live at:  
+👉 **[https://qr-checkin-api.onrender.com/](https://qr-checkin-api.onrender.com/)**
+
+Use [Postman](https://www.postman.com/) to test all endpoints. A shared collection is available below.
+
+---
+
 ## 🚀 Features
 
 - ✅ Student and Host registration with roles
@@ -21,7 +30,7 @@ A Django REST Framework API for managing event registrations, check-ins using QR
 
 - **Backend**: Django + Django REST Framework  
 - **Auth**: JWT (JSON Web Tokens)  
-- **Database**: SQLite (default, replaceable with PostgreSQL)  
+- **Database**: SQLite for development and PostgreSQL for production
 - **QR**: `qrcode` library  
 - **Email**: SMTP-based QR delivery (via Gmail, etc.)
 

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'users',
+    'home',
     'events',
     'rest_framework_simplejwt.token_blacklist',
 ]
@@ -106,6 +107,8 @@ TEMPLATES = [
         },
     },
 ]
+
+
 
 WSGI_APPLICATION = 'qr_api.wsgi.application'
 
