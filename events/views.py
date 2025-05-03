@@ -44,14 +44,25 @@ class EventCreateView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def post(self, request):
-        if request.user.role != 'host': 
-            return Response({"detail": "You do not have permission to perform this action."}, status=status.HTTP_403_FORBIDDEN)
+        if request.user.role != 'host':
+            return Response(
+                {"detail": "You do not have permission to perform this action."},
+                status=status.HTTP_403_FORBIDDEN
+            )
 
         serializer = EventSerializer(data=request.data)
         if serializer.is_valid():
             event = serializer.save()
-            return Response(EventSerializer(event).data, status=status.HTTP_201_CREATED)
+            return Response(
+                {
+                    "message": "Event created successfully.",
+                    "event": EventSerializer(event).data
+                },
+                status=status.HTTP_201_CREATED
+            )
+
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 class EventListView(generics.ListAPIView):
